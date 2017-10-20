@@ -12,7 +12,20 @@
    MAIN
   +-------------------------------+
   */
-  main{}
+  main{
+
+    .lightsaber{
+      width: 50px;
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      margin-left: - 25px;
+      img{
+        width: 100%;
+      }
+    }
+
+  }
 
 }
 
