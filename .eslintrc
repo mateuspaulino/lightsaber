@@ -1,0 +1,32 @@
+{
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jquery": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-console": 0,
+        //"indent": [2, "tab"],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-empty-class": 0,
+        "valid-typeof": 1,
+        "no-irregular-whitespace": 1,
+        "no-empty": 1
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "globals": {
+        "google" : true
+    }
+}
+
+
