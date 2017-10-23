@@ -5,7 +5,25 @@
    HEADER
   +-------------------------------+
   */
-	header{} 
+	header{
+
+    .log{
+        max-width: 220px;
+        border: 1px solid rgb(0, 62, 155);
+        text-align: center;
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 10px auto 0 auto;
+        p{
+          font: 15px/15px "Tahoma", sans-serif;
+        }
+        h1{
+          font: 35px/35px "Tahoma", sans-serif;
+          color: rgb(0, 62, 155);
+        }
+    }
+
+  } 
 
   /*
   +-------------------------------+
@@ -14,10 +32,12 @@
   */
   main{
 
+    
+
     .lightsaber{
       width: 50px;
       position: absolute;
-      bottom: 50px;
+      bottom: 0px;
       left: 50%;
       margin-left: - 25px;
       cursor: pointer;
