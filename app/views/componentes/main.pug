@@ -2,6 +2,15 @@
     header
     main
         .lightsaber
-            img(src="./img/lightsaber.png")
+            img.img-lightsaber(src="./img/lightsaber.png")
+        .cachesounds
+            audio(preload="auto").audio#on
+                source(src="./audio/on.mp3" type="audio/mpeg")
+            audio(preload="auto").audio#off
+                source(src="./audio/on.mp3" type="audio/mpeg")
+            audio(preload="auto").audio#right
+                source(src="./audio/on.mp3" type="audio/mpeg")
+            audio(preload="auto").audio#left
+                source(src="./audio/on.mp3" type="audio/mpeg")
 
 
