@@ -73,22 +73,23 @@ const movement = (direction) => {
             case "on":
                 lightSaber.setState(true);
                 audio.on.play();
+                logMovement.innerHTML = "on";
             break;
             case "off":
                 lightSaber.setState(false);
                 audio.off.play();
-                logMovement.innerHTML = "desligado";
+                logMovement.innerHTML = "off";
             break;
             case "right":
                 createdPlayerRight.play();
-                logMovement.innerHTML = "direita";
+                logMovement.innerHTML = "right";
                 break;
             case "left":
                 createdPlayerLeft.play();
-                logMovement.innerHTML = "esquerda";
+                logMovement.innerHTML = "left";
                 break;
             case "stopped":
-                logMovement.innerHTML = "parado";
+                logMovement.innerHTML = "stopped";
                 break;
             default:
                 lightSaber.setState(false);
