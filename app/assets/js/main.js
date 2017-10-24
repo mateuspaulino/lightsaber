@@ -1,5 +1,5 @@
-import { Lightsaber } from './modulos/Lightsaber.js';
-import { AudioEffect } from './modulos/AudioEffect.js';
+import { Lightsaber } from './modules/Lightsaber.js';
+import { AudioEffect } from './modules/AudioEffect.js';
 
 let $ = document.querySelector.bind(document);
 
