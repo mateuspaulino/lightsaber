@@ -18,11 +18,11 @@ lightSaberElem.addEventListener('click', function(){
     if(lightSaber.state){
         lightSaber.elemimg.src = lightSaber.pathOff;
         lightSaber.setState(false);
-        audio.off.play();
+        movement("off");
     }else{
         lightSaber.elemimg.src = lightSaber.pathOn;
         lightSaber.setState(true);        
-        audio.on.play();
+        movement("on");
     }
     
     //I had to create / play some audios dynamically on the first click, because on mobile, some browsers do not accept to trigger audio, so it's a way to turn it on
@@ -50,19 +50,17 @@ if(window.DeviceOrientationEvent){
     let sinal = 0;
     window.addEventListener('deviceorientation',function(event){ 
         let movementGamma = event.gamma;
-        // console.log(movementGamma);
+
         if(lightSaber.state){
             if(movementGamma>25){
-                // logMovement.innerHTML = "direita";
                 movement("right");
             }else if(movementGamma<-25){
-                // logMovement.innerHTML = "esquerda";
                 movement("left");
             }else{
                 movement("stopped");
-                // logMovement.innerHTML = "parado";
             }
         }
+
     });
 }
 
