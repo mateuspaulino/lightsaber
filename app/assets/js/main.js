@@ -11,6 +11,8 @@ let audio = new AudioEffect();
 let createdPlayerRight = null;
 let createdPlayerLeft = null;
 
+let firstClick = true;
+
 lightSaberElem.addEventListener('click', function(){
 
     if(lightSaber.state){
@@ -23,30 +25,26 @@ lightSaberElem.addEventListener('click', function(){
         audio.on.play();
     }
     
-    //teste
-    createdPlayerRight = new Audio('../audio/right.mp3');
-    createdPlayerRight.muted = true;
+    //I had to create / play some audios dynamically on the first click, because on mobile, some browsers do not accept to trigger audio, so it's a way to turn it on
+    if(firstClick){
+        createdPlayerRight = new Audio('../audio/right.mp3');
+        createdPlayerRight.muted = true;
+    
+        createdPlayerLeft = new Audio('../audio/left.mp3');
+        createdPlayerLeft.muted = true;
+    
+        createdPlayerRight.play();
+        createdPlayerRight.play();
+    
+        createdPlayerLeft.muted = false;
+        createdPlayerRight.muted = false;
 
-    createdPlayerLeft = new Audio('../audio/left.mp3');
-    createdPlayerLeft.muted = true;
-
-    createdPlayerRight.play();
-    createdPlayerRight.play();
-
-    createdPlayerLeft.muted = false;
-    createdPlayerRight.muted = false;
-
-    // lightSaber.setState(true);
-
-    // audio.player.src = '../audio/on.mp3';
-    // audio.player.play();
+        firstClick = false;
+    }
 
 });
 
-
-
-let logMovimento = $('header h1');
-logMovimento.innerHTML = "parado";
+let logMovement = $('header h1');
 
 if(window.DeviceOrientationEvent){
     let sinal = 0;
@@ -55,42 +53,44 @@ if(window.DeviceOrientationEvent){
         // console.log(movementGamma);
         if(lightSaber.state){
             if(movementGamma>25){
-                logMovimento.innerHTML = "direita";
-
-                // audio.player.src = '../audio/right.mp3';
-                // audio.player.play();
-
-                createdPlayerRight.play();
-
-                // audio.right.play();
-                // playAudio("right");
+                // logMovement.innerHTML = "direita";
+                movement("right");
             }else if(movementGamma<-25){
-                // audio.left.play();
-                logMovimento.innerHTML = "esquerda";
-
-                createdPlayerLeft.play();
-
-                // audio.player.src = '../audio/left.mp3';
-                // audio.player.play();
-                // playAudio("left");
+                // logMovement.innerHTML = "esquerda";
+                movement("left");
             }else{
-                logMovimento.innerHTML = "parado";
+                movement("stopped");
+                // logMovement.innerHTML = "parado";
             }
         }
-    })
+    });
 }
 
-let previousDirection = ""
+let previousDirection = "";
 
-const playAudio = (direction) => {
+const movement = (direction) => {
     
     if(direction !== previousDirection){
         switch(direction){
+            case "on":
+                lightSaber.setState(true);
+                audio.on.play();
+            break;
+            case "off":
+                lightSaber.setState(false);
+                audio.off.play();
+                logMovement.innerHTML = "desligado";
+            break;
             case "right":
-                audio.right.play();
+                createdPlayerRight.play();
+                logMovement.innerHTML = "direita";
                 break;
             case "left":
-                audio.left.play();
+                createdPlayerLeft.play();
+                logMovement.innerHTML = "esquerda";
+                break;
+            case "stopped":
+                logMovement.innerHTML = "parado";
                 break;
             default:
                 lightSaber.setState(false);
@@ -99,13 +99,5 @@ const playAudio = (direction) => {
         previousDirection = direction;
     }
 
-}
-
-// const clickLightsaber = (lightSaber) => {
-//     console.log(lightSaber);
-// }
-
-// lightSaber.elemimg.src = "./img/lightsaber-on.png";
-
-// console.log(lightSaber.elemimg);
+};
 
