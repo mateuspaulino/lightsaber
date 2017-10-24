@@ -7,6 +7,8 @@
         .lightsaber
             img.img-lightsaber(src="./img/lightsaber.png")
         .cachesounds
+            audio(preload="auto").audio#player
+                source(src="" type="audio/mpeg")
             audio(preload="auto").audio#on
                 source(src="./audio/on.mp3" type="audio/mpeg")
             audio(preload="auto").audio#off
