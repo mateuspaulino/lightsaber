@@ -9,4 +9,4 @@ https://mateuspaulino.github.io/lightsaber/
 ## Browser support ##
 * http://caniuse.com/#feat=deviceorientation
 
-- Thanks [@werickvieira](https://github.com/werickvieira) for the gulpes6-kit
+Thanks [@werickvieira](https://github.com/werickvieira) for the gulpes6-kit
