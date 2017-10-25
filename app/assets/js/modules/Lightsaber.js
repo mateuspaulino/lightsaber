@@ -27,5 +27,3 @@ export class Lightsaber {
         return this._pathOff;
     }    
 }
-
-// export { Lightsaber as default}

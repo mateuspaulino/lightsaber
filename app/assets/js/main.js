@@ -27,10 +27,10 @@ lightSaberElem.addEventListener('click', function(){
     
     //I had to create / play some audios dynamically on the first click, because on mobile, some browsers do not accept to trigger audio, so it's a way to turn it on
     if(firstClick){
-        createdPlayerRight = new Audio('../audio/right.mp3');
+        createdPlayerRight = new Audio('./audio/right.mp3');
         createdPlayerRight.muted = true;
     
-        createdPlayerLeft = new Audio('../audio/left.mp3');
+        createdPlayerLeft = new Audio('./audio/left.mp3');
         createdPlayerLeft.muted = true;
     
         createdPlayerRight.play();
